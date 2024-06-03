@@ -11,10 +11,9 @@ int is_prime(int num) {
     return 1;
 }
 
-// Function executed by each thread
-void *check_prime(void *arg) {
+void *cek_prima(void *arg) {
     int num = *((int *)arg);
-    if (is_prime(num)) {
+    if (is_prima(num)) {
         printf("%d prima\n", num);
     } else {
         printf("%d bukan prima\n", num);
