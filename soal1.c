@@ -13,7 +13,7 @@ int is_prime(int num) {
 
 void *cek_prima(void *arg) {
     int num = *((int *)arg);
-    if (is_prima(num)) {
+    if (is_prime(num)) {
         printf("%d prima\n", num);
     } else {
         printf("%d bukan prima\n", num);
@@ -30,10 +30,6 @@ int main() {
         pthread_create(&threads[i], NULL, cek_prima, (void *)&nums[i]);
     }
     for (int i = 0; i < num_threads; i++) {
-        pthread_join(threads[i], NULL);
-    }
-    return 0;
-}= 0; i < argc - 1; i++) {
         pthread_join(threads[i], NULL);
     }
     return 0;
