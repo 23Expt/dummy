@@ -22,13 +22,19 @@ void *check_prime(void *arg) {
     pthread_exit(NULL);
 }
 
-int main(int argc, char *argv[]) {
-    pthread_t threads[argc - 1];
-    for (int i = 1; i < argc; i++) {
-        int num = atoi(argv[i]);
-        pthread_create(&threads[i - 1], NULL, check_prime, (void *)&num);
+int main() {
+    int nums[] = {12, 43, 49};
+    int num_threads = sizeof(nums) / sizeof(nums[0]);
+    
+    pthread_t threads[num_threads];
+    for (int i = 0; i < num_threads; i++) {
+        pthread_create(&threads[i], NULL, cek_prima, (void *)&nums[i]);
     }
-    for (int i = 0; i < argc - 1; i++) {
+    for (int i = 0; i < num_threads; i++) {
+        pthread_join(threads[i], NULL);
+    }
+    return 0;
+}= 0; i < argc - 1; i++) {
         pthread_join(threads[i], NULL);
     }
     return 0;
